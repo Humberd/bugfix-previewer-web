@@ -17,11 +17,11 @@ export class SprintUpdateStrategy implements SprintModificationStrategy {
   }
 
   getSubmitButton(): string {
-    return 'Create';
+    return 'Save';
   }
 
   getTitle(): string {
-    return 'New Sprint';
+    return 'Update Sprint';
   }
 
   handleSubmit(

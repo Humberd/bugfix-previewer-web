@@ -1,1 +1,39 @@
-<p>bugfix-modification-dialog works!</p>
+<h1 mat-dialog-title>
+  {{title}}
+</h1>
+
+<div>
+  <form [formGroup]="rootForm" (ngSubmit)="submitForm()">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput [formControl]="rootForm.get('name')">
+    </mat-form-field>
+    <app-field-errors [control]="rootForm.get('name')"></app-field-errors>
+
+    <mat-form-field>
+      <mat-label>Ticket</mat-label>
+      <input matInput [formControl]="rootForm.get('ticket')">
+    </mat-form-field>
+    <app-field-errors [control]="rootForm.get('ticket')"></app-field-errors>
+
+<!--    <mat-form-field>-->
+<!--      <mat-label>Bug Preview</mat-label>-->
+<!--    </mat-form-field>-->
+<!--    <app-field-errors [control]="rootForm.get('bugPreviewUrl')"></app-field-errors>-->
+
+<!--    <mat-form-field>-->
+<!--      <mat-label>Fix Preview</mat-label>-->
+<!--    </mat-form-field>-->
+<!--    <app-field-errors [control]="rootForm.get('fixPreviewUrl')"></app-field-errors>-->
+
+
+    <div mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close type="button">Cancel</button>
+      <button mat-raised-button color="primary" [disabled]="rootForm.invalid">
+        {{submitButton}}
+      </button>
+    </div>
+
+  </form>
+</div>
+
