@@ -1,0 +1,23 @@
+:host {
+  display: block;
+}
+
+.table {
+  width: 100%;
+
+  th, td {
+    vertical-align: middle;
+  }
+
+  .mat-column-actions {
+    width: 100px;
+  }
+}
+
+.action-buttons {
+  display: flex;
+}
+
+button.new-button {
+  margin-left: auto;
+}

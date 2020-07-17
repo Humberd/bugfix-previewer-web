@@ -11,3 +11,17 @@ export interface ViewListExtra {
   isFirst: boolean;
   isLast: boolean;
 }
+
+export function defaultViewList<T>(): ViewList<T> {
+  return {
+    data: [],
+    extra: {
+      pageNumber: 0,
+      pageSize: 0,
+      totalPages: 0,
+      totalElements: 0,
+      isFirst: false,
+      isLast: false,
+    },
+  };
+}
