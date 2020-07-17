@@ -24,7 +24,7 @@ export class BugfixDomainService {
     return this.httpClient.put<void>(`${this.baseUrl}/bugfixes/${id}`, body);
   }
 
-  delte(id: string): Observable<void> {
+  delete(id: string): Observable<void> {
     return this.httpClient.delete<void>(`${this.baseUrl}/bugfixes/${id}`);
   }
 }
