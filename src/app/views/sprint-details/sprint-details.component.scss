@@ -1,3 +1,16 @@
 :host {
   display: block;
 }
+
+button.new-button {
+  margin-left: auto;
+}
+
+button.play-button {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.mat-column-actions {
+  width: 100px;
+}
