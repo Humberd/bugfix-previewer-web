@@ -48,7 +48,9 @@ export class SprintsComponent implements OnInit {
   }
 
   async openUpdateSprintDialog(sprintView: SprintView) {
-    const dialogRef = await this.sprintModificationDialogService.openUpdate();
+    const dialogRef = await this.sprintModificationDialogService.openUpdate({
+      sprintView,
+    });
     dialogRef.afterClosed()
       .subscribe(result => {
         if (!result) return;
