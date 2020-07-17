@@ -1,3 +1,18 @@
 :host {
   display: block;
 }
+
+.previews {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.preview-section {
+
+  .preview-label {
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+}
+
+

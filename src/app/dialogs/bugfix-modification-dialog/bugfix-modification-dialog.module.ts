@@ -7,6 +7,7 @@ import { FieldErrorsModule } from '../../common/field-errors/field-errors.module
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FileUploaderModule } from '../../common/file-uploader/file-uploader.module';
 
 @NgModule({
   declarations: [BugfixModificationDialogComponent],
@@ -18,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FieldErrorsModule,
     MatInputModule,
     MatButtonModule,
+    FileUploaderModule,
   ],
 })
 export class BugfixModificationDialogModule {

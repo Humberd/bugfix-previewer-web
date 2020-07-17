@@ -1,0 +1,14 @@
+<video class="video" *ngIf="url" [src]="url" controls></video>
+<div class="progress-bar"></div>
+<div class="buttons">
+  <div class="file-input"></div>
+  <button
+    *ngIf="url"
+    mat-button
+    color="warn"
+    (click)="removeSelection()"
+  >
+    <mat-icon>close</mat-icon>
+    <span>Remove selection</span>
+  </button>
+</div>

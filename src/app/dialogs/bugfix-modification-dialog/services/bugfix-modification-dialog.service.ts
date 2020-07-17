@@ -16,7 +16,7 @@ export class BugfixModificationDialogService {
 
     return this.matDialog.open(component, {
       data,
-      width: '600px',
+      width: '700px',
     });
   }
 
@@ -26,7 +26,7 @@ export class BugfixModificationDialogService {
 
     return this.matDialog.open(component, {
       data,
-      width: '600px',
+      width: '700px',
     });
   }
 }

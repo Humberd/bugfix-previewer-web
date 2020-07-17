@@ -16,15 +16,17 @@
     </mat-form-field>
     <app-field-errors [control]="rootForm.get('ticket')"></app-field-errors>
 
-<!--    <mat-form-field>-->
-<!--      <mat-label>Bug Preview</mat-label>-->
-<!--    </mat-form-field>-->
-<!--    <app-field-errors [control]="rootForm.get('bugPreviewUrl')"></app-field-errors>-->
+    <div class="previews">
+      <fieldset class="preview-section">
+        <mat-label class="preview-label">Bug preview</mat-label>
+        <app-file-uploader [formControl]="rootForm.get('bugPreviewUrl')"></app-file-uploader>
+      </fieldset>
 
-<!--    <mat-form-field>-->
-<!--      <mat-label>Fix Preview</mat-label>-->
-<!--    </mat-form-field>-->
-<!--    <app-field-errors [control]="rootForm.get('fixPreviewUrl')"></app-field-errors>-->
+      <fieldset class="preview-section">
+        <mat-label class="preview-label">Fix preview</mat-label>
+        <app-file-uploader [formControl]="rootForm.get('fixPreviewUrl')"></app-file-uploader>
+      </fieldset>
+    </div>
 
 
     <div mat-dialog-actions align="end">
