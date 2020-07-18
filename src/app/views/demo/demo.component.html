@@ -1,1 +1,43 @@
-<p>demo works!</p>
+<header class="header" *ngIf="bugfixes.length">
+  <span class="ticket">{{bugfixes[currentBugfixIndex]?.ticket}} </span>
+  <span class="name">{{bugfixes[currentBugfixIndex]?.name}}</span>
+
+  <span *ngIf="isBugPreview">- (Bug preview)</span>
+  <span *ngIf="!isBugPreview">- (Fix preview)</span>
+</header>
+
+<main *ngIf="bugfixes.length">
+  <video
+    class="video"
+    [src]="getCurrentUrl()"
+    controls
+    autoplay
+    (pause)="videoPaused()"
+    (playing)="videoStarted()"
+    (ended)="videoEnded()"
+  ></video>
+</main>
+
+<div class="global-overlay" *ngIf="!isPlaying">
+  <section class="event-section">
+    <button mat-raised-button *ngIf="isBugPreview" (click)="showFixPreview()">
+      Show Fix Preview
+      <mat-icon>arrow_right</mat-icon>
+    </button>
+
+    <button mat-raised-button *ngIf="!isBugPreview" (click)="showBugPreview()">
+      <mat-icon>arrow_left</mat-icon>
+      Show Bug Preview
+    </button>
+
+    <button mat-raised-button *ngIf="!isBugPreview" (click)="goToNextBugfix()">
+      NEXT BUGFIX
+      <mat-icon>bug_report</mat-icon>
+    </button>
+
+    <button mat-raised-button *ngIf="!isBugPreview" (click)="goToPreviousBugfix()">
+      <mat-icon>bug_report</mat-icon>
+      PREVIOUS BUGFIX
+    </button>
+  </section>
+</div>
