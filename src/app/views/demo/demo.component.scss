@@ -7,7 +7,7 @@
 header.header {
   font-size: 28px;
   color: #ffffff;
-  background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.5494398442970938) 49%, rgba(0,0,0,0.748319396117822) 79%, rgba(0,0,0,0.8659664549413515) 100%);
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5494398442970938) 49%, rgba(0, 0, 0, 0.748319396117822) 79%, rgba(0, 0, 0, 0.8659664549413515) 100%);
 
   height: 64px;
   display: flex;
@@ -16,12 +16,18 @@ header.header {
   position: absolute;
   top: 0;
   width: 100%;
+  padding: 0 16px;
+  z-index: 10;
 
   .ticket {
     margin-right: 8px;
   }
 
   .name {
+    margin-right: 8px;
+  }
+
+  .back-button {
     margin-right: 8px;
   }
 
@@ -51,7 +57,25 @@ main {
 
   pointer-events: none;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   .event-section {
     pointer-events: auto;
+  }
+
+  .controls {
+    display: flex;
+    align-items: center;
+    height: 100px;
+  }
+
+  .right-action {
+    margin: 0 8px;
+  }
+
+  .left-action {
+    margin: 0 8px;
   }
 }

@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SprintDomainService } from '../../domain/entities/sprint/sprint-domain.service';
 import { SprintView } from '../../domain/entities/sprint/view/sprint-view';
@@ -11,17 +11,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./demo.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DemoComponent implements OnInit, AfterViewInit, OnDestroy {
+export class DemoComponent {
   private sprintId: string;
   sprintView: SprintView;
   bugfixes: BugfixView[] = [];
   currentBugfixIndex = 0;
   isBugPreview = true;
-  allEnded = false;
-  bugfixEnded = false;
-  bugPreviewEnded = false;
-  fixPreviewEnded = false;
-  isPlaying = false;
+  isVideoPlaying = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -36,18 +32,6 @@ export class DemoComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {
     this.fetchSprintDetails();
     this.fetchBugfixes();
-  }
-
-  async ngAfterViewInit() {
-    try {
-      const response = await document.documentElement.requestFullscreen();
-    } catch (e) {
-      console.error(e);
-    }
-  }
-
-  ngOnDestroy() {
-    document.exitFullscreen();
   }
 
   getCurrentUrl(): string {
@@ -81,33 +65,15 @@ export class DemoComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   videoEnded() {
-    this.isPlaying = false;
-    if (this.isBugPreview) {
-      this.bugPreviewEnded = true;
-      this.fixPreviewEnded = false;
-
-      return;
-    }
-
-    this.bugPreviewEnded = false;
-    this.fixPreviewEnded = true;
-
-    if (this.currentBugfixIndex === this.bugfixes.length - 1) {
-      this.allEnded = true;
-
-      return;
-    }
-
-    this.bugfixEnded = true;
+    this.isVideoPlaying = false;
   }
 
   videoStarted() {
-    console.log('video started');
-    this.isPlaying = true;
+    this.isVideoPlaying = true;
   }
 
   videoPaused() {
-    this.isPlaying = false;
+    this.isVideoPlaying = false;
   }
 
   showFixPreview() {
@@ -119,10 +85,20 @@ export class DemoComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   goToNextBugfix() {
-
+    this.currentBugfixIndex++;
+    this.isBugPreview = true;
   }
 
   goToPreviousBugfix() {
+    this.currentBugfixIndex--;
+    this.isBugPreview = false;
+  }
 
+  hasNext(): boolean {
+    return this.currentBugfixIndex < this.bugfixes.length - 1;
+  }
+
+  hasPrevious(): boolean {
+    return this.currentBugfixIndex > 0;
   }
 }

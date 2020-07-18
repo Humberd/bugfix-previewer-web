@@ -1,4 +1,8 @@
 <header class="header" *ngIf="bugfixes.length">
+  <a class="back-button" mat-icon-button routerLink="../">
+    <mat-icon>arrow_back</mat-icon>
+  </a>
+
   <span class="ticket">{{bugfixes[currentBugfixIndex]?.ticket}} </span>
   <span class="name">{{bugfixes[currentBugfixIndex]?.name}}</span>
 
@@ -18,26 +22,36 @@
   ></video>
 </main>
 
-<div class="global-overlay" *ngIf="!isPlaying">
-  <section class="event-section">
-    <button mat-raised-button *ngIf="isBugPreview" (click)="showFixPreview()">
-      Show Fix Preview
-      <mat-icon>arrow_right</mat-icon>
+<div class="global-overlay" *ngIf="!isVideoPlaying">
+  <div class="controls">
+    <button
+      *ngIf="isBugPreview && hasPrevious()"
+      class="event-section left-action"
+      mat-raised-button
+      (click)="goToPreviousBugfix()"
+    >
+      <mat-icon>bug_report</mat-icon>
+      PREVIOUS BUGFIX
     </button>
 
-    <button mat-raised-button *ngIf="!isBugPreview" (click)="showBugPreview()">
+    <button class="event-section left-action" mat-raised-button *ngIf="!isBugPreview" (click)="showBugPreview()">
       <mat-icon>arrow_left</mat-icon>
       Show Bug Preview
     </button>
 
-    <button mat-raised-button *ngIf="!isBugPreview" (click)="goToNextBugfix()">
+    <button
+      *ngIf="!isBugPreview && hasNext()"
+      class="event-section right-action" mat-raised-button
+      (click)="goToNextBugfix()"
+    >
       NEXT BUGFIX
       <mat-icon>bug_report</mat-icon>
     </button>
 
-    <button mat-raised-button *ngIf="!isBugPreview" (click)="goToPreviousBugfix()">
-      <mat-icon>bug_report</mat-icon>
-      PREVIOUS BUGFIX
+    <button class="event-section right-action" mat-raised-button *ngIf="isBugPreview" (click)="showFixPreview()">
+      Show Fix Preview
+      <mat-icon>arrow_right</mat-icon>
     </button>
-  </section>
+  </div>
+
 </div>
