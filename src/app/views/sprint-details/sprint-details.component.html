@@ -1,5 +1,10 @@
 <mat-toolbar color="primary">
   <ng-container *ngIf="sprintView">
+    <a class="back-arrow" routerLink="/sprints" mat-icon-button>
+      <mat-icon>arrow_back</mat-icon>
+    </a>
+
+
     <h1>{{sprintView.name}}</h1>
 
     <button
