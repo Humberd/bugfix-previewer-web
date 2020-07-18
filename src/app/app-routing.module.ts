@@ -16,6 +16,10 @@ const routes: Routes = [
     loadChildren: () => import('./views/sprint-details/sprint-details.module').then(m => m.SprintDetailsModule),
   },
   {
+    path: 'sprints/:id/demo',
+    loadChildren: () => import('./views/demo/demo.module').then(m => m.DemoModule),
+  },
+  {
     path: '**',
     redirectTo: '/sprints'
   }
