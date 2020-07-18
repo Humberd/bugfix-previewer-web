@@ -72,7 +72,7 @@ export class FileUploaderComponent implements OnInit, AfterViewInit, ControlValu
         restrictions: {
           maxFileSize: 20000000,
           maxNumberOfFiles: 1,
-          allowedFileTypes: ['.avi', '.mp4'],
+          allowedFileTypes: ['.mp4'],
         },
       });
       this.uppy = uppy;
