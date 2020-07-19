@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SprintDomainService } from '../../domain/entities/sprint/sprint-domain.service';
 import { SprintView } from '../../domain/entities/sprint/view/sprint-view';
@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./demo.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DemoComponent {
+export class DemoComponent implements OnInit {
   private sprintId: string;
   sprintView: SprintView;
   bugfixes: BugfixView[] = [];
